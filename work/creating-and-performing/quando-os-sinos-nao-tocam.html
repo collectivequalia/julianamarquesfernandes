@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" class="project-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>When the Bells Don't Chime — Juliana Marques Fernandes</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/project.css">
+  <!-- Experimental page-only theme: background colour sampled directly
+       from the purple/pink stage lighting in this piece's own photos
+       (#833298), instead of the site's usual off-white. Scoped to this
+       page's own class so nothing else is affected. -->
+  <style>
+    body.project.sinos-purple {
+      background: #833298;
+    }
+
+    body.project.sinos-purple .project-fade-top {
+      background: linear-gradient(
+        to bottom,
+        rgba(131, 50, 152, 1) 0%,
+        rgba(131, 50, 152, 0.987) 8.1%,
+        rgba(131, 50, 152, 0.951) 15.5%,
+        rgba(131, 50, 152, 0.896) 22.5%,
+        rgba(131, 50, 152, 0.825) 29%,
+        rgba(131, 50, 152, 0.741) 35.3%,
+        rgba(131, 50, 152, 0.648) 41.2%,
+        rgba(131, 50, 152, 0.55) 47.1%,
+        rgba(131, 50, 152, 0.45) 52.9%,
+        rgba(131, 50, 152, 0.352) 58.8%,
+        rgba(131, 50, 152, 0.259) 64.7%,
+        rgba(131, 50, 152, 0.175) 71%,
+        rgba(131, 50, 152, 0.104) 77.5%,
+        rgba(131, 50, 152, 0.049) 84.5%,
+        rgba(131, 50, 152, 0.013) 91.9%,
+        rgba(131, 50, 152, 0) 100%
+      );
+    }
+
+    body.project.sinos-purple .project-fade-bottom {
+      background: linear-gradient(
+        to top,
+        rgba(131, 50, 152, 1) 0%,
+        rgba(131, 50, 152, 0.987) 8.1%,
+        rgba(131, 50, 152, 0.951) 15.5%,
+        rgba(131, 50, 152, 0.896) 22.5%,
+        rgba(131, 50, 152, 0.825) 29%,
+        rgba(131, 50, 152, 0.741) 35.3%,
+        rgba(131, 50, 152, 0.648) 41.2%,
+        rgba(131, 50, 152, 0.55) 47.1%,
+        rgba(131, 50, 152, 0.45) 52.9%,
+        rgba(131, 50, 152, 0.352) 58.8%,
+        rgba(131, 50, 152, 0.259) 64.7%,
+        rgba(131, 50, 152, 0.175) 71%,
+        rgba(131, 50, 152, 0.104) 77.5%,
+        rgba(131, 50, 152, 0.049) 84.5%,
+        rgba(131, 50, 152, 0.013) 91.9%,
+        rgba(131, 50, 152, 0) 100%
+      );
+    }
+
+    body.project.sinos-purple .home-topbar nav a,
+    body.project.sinos-purple .site-title {
+      color: #fdfdfd;
+    }
+
+    body.project.sinos-purple .project-crumb {
+      background: #833298;
+      border-color: #fdfdfd;
+    }
+
+    body.project.sinos-purple .project-name,
+    body.project.sinos-purple .crumb-back,
+    body.project.sinos-purple .crumb-arrow,
+    body.project.sinos-purple .keyword-list li {
+      color: #fdfdfd;
+    }
+
+    body.project.sinos-purple .project-facts {
+      border-color: #fdfdfd;
+      color: #fdfdfd;
+    }
+
+    body.project.sinos-purple .project-facts section + section {
+      border-top-color: #fdfdfd;
+    }
+
+    body.project.sinos-purple .project-facts a {
+      color: #fdfdfd;
+    }
+
+    /* Experimental scattered gallery layout for this page only:
+       varied sizes/positions instead of the site's usual cascade. */
+    @media (max-width: 1100px) {
+      body.project.sinos-purple .project-gallery img:nth-child(1) {
+        width: 85%;
+        align-self: flex-start;
+      }
+
+      body.project.sinos-purple .project-gallery img:nth-child(2) {
+        width: 68%;
+        align-self: flex-end;
+      }
+
+      body.project.sinos-purple .project-gallery img:nth-child(3) {
+        width: 78%;
+        align-self: center;
+      }
+    }
+
+    @media (min-width: 1101px) {
+      body.project.sinos-purple .project-gallery img:nth-child(1) {
+        width: 55%;
+        margin-top: 0;
+        margin-left: 2%;
+        z-index: 1;
+      }
+
+      body.project.sinos-purple .project-gallery img:nth-child(2) {
+        width: 38%;
+        margin-top: -6%;
+        margin-left: 60%;
+        z-index: 2;
+      }
+
+      body.project.sinos-purple .project-gallery img:nth-child(3) {
+        width: 46%;
+        margin-top: 6%;
+        margin-left: 18%;
+        z-index: 3;
+      }
+    }
+  </style>
+</head>
+<body class="project sinos-purple">
+
+  <div class="project-fade-top" aria-hidden="true"></div>
+  <div class="project-fade-bottom" aria-hidden="true"></div>
+
+  <div class="home-topbar">
+    <h1 class="site-title">Work</h1>
+    <nav>
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../index.html" class="active">Work</a></li>
+        <li><a href="../../teaching.html">Teaching</a></li>
+        <li><a href="../../calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="project-layout">
+    <div class="project-left">
+      <div class="project-crumb">
+        <a class="crumb-back" href="../index.html">
+          <span>Creating and Performing</span>
+          <span class="crumb-arrow" aria-hidden="true">&larr;</span>
+        </a>
+        <div class="crumb-main">
+          <h1 class="project-name">When the Bells Don't Chime</h1>
+          <ul class="keyword-list">
+            <li>Discovery</li>
+            <li>Emotion</li>
+            <li>Journey</li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="project-left-sticky">
+      <div class="project-facts">
+        <section class="project-description">
+          <p>&ldquo;When the bells don't chime&rdquo; is a discovery of the human being when exposed to an emotional circumstance. How do we react? What do we do? What are the patterns of thought and actions? How many emotional layers do we have regarding one single&nbsp;situation?</p>
+          <p>Questions that are put on spot and researched by the performer in a journey shared with the&nbsp;audience.</p>
+        </section>
+        <section class="project-credits">
+          <p><em>Creation</em> - Juliana&nbsp;Fernandes</p>
+          <p><em>Performance</em> - Juliana&nbsp;Fernandes</p>
+          <p><em>Sound Design</em> - Juliana&nbsp;Fernandes</p>
+        </section>
+        <section class="project-dates">
+          <h2>Performed at</h2>
+          <p>Festival Multiplicidades&nbsp;2020</p>
+        </section>
+      </div>
+    </div>
+    </div>
+
+    <div class="project-right">
+      <div class="project-media">
+        <video src="../../assets/videos/sinos-trailer.mp4" autoplay muted loop playsinline></video>
+      </div>
+
+      <div class="project-gallery">
+        <img src="../../assets/images/sinos1.jpg" alt="Performer lit in purple beside a chair on stage, When the Bells Don't Chime">
+        <img src="../../assets/images/sinos2.jpg" alt="Performer in motion under purple stage lighting, When the Bells Don't Chime">
+        <img src="../../assets/images/sinos3.jpg" alt="Performer reaching upward under pink and purple light, When the Bells Don't Chime">
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="">
+    <p class="lightbox-caption">&copy; Florian Astraudo</p>
+  </div>
+
+  <script src="../../js/lightbox.js"></script>
+
+</body>
+</html>

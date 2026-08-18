@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" class="project-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Everyours — Juliana Marques Fernandes</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/project.css">
+  <!-- Page-only override: the only gallery photo is low-resolution
+       (an old social-media export), so it's shown smaller than the
+       usual cascade size — at half width, quality issues are much
+       less noticeable. -->
+  <style>
+    @media (max-width: 1100px) {
+      .project-gallery img:nth-child(1) {
+        width: 46%;
+      }
+    }
+
+    @media (min-width: 1101px) {
+      .project-gallery img:nth-child(1) {
+        width: 31%;
+      }
+    }
+  </style>
+</head>
+<body class="project">
+
+  <div class="project-fade-top" aria-hidden="true"></div>
+  <div class="project-fade-bottom" aria-hidden="true"></div>
+
+  <div class="home-topbar">
+    <h1 class="site-title">Work</h1>
+    <nav>
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../index.html" class="active">Work</a></li>
+        <li><a href="../../teaching.html">Teaching</a></li>
+        <li><a href="../../calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="project-layout">
+    <div class="project-left">
+      <div class="project-crumb">
+        <a class="crumb-back" href="../index.html">
+          <span>Creating</span>
+          <span class="crumb-arrow" aria-hidden="true">&larr;</span>
+        </a>
+        <div class="crumb-main">
+          <h1 class="project-name">Everyours</h1>
+          <ul class="keyword-list">
+            <li>Sound</li>
+            <li>Movement</li>
+            <li>Collage</li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="project-left-sticky">
+      <div class="project-facts">
+        <section class="project-credits">
+          <p><em>Music</em></p>
+          <p>Arborescence &ndash; &Uacute;lfur</p>
+          <p>Serpentine &ndash; &Uacute;lfur</p>
+          <p>T&oacute;mio Tritar &ndash; &Uacute;lfur</p>
+          <p>There is Honey in the Moon Tonight &ndash; Chick&nbsp;MacGregor</p>
+          <p>Hello Dolly &ndash; Jerry Herman, Magic Swing&nbsp;Band</p>
+          <p>Les Animaux &agrave; M&eacute;tamorphoses &ndash; Yasunoshin&nbsp;Morita</p>
+          <p>HEM-TAI Duo (Yasutaka Hemmi &amp; Tomoki&nbsp;Tai)</p>
+        </section>
+      </div>
+    </div>
+    </div>
+
+    <div class="project-right">
+      <div class="project-media">
+        <video src="../../assets/videos/everyours-trailer.mp4" autoplay muted loop playsinline></video>
+      </div>
+
+      <div class="project-gallery">
+        <img src="../../assets/images/everyours1.jpg" alt="Performers holding coloured balloons on stage, Everyours">
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="">
+  </div>
+
+  <script src="../../js/lightbox.js"></script>
+
+</body>
+</html>

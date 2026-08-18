@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Calendar page (calendar.html)
+   Reuses .events-box / .events-list / .signature from home.css. Adds
+   a floating photo preview that follows the cursor on row hover
+   (desktop only). ======================================================= */
+
+/* --- Base layout: events box bottom-anchored via margin-top:auto --- */
+
+body.calendar {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Same fade-to-white gradient technique (and same stops) used on
+   home/work/project pages, so the header reads identically here
+   too — fixed, full-bleed, edge to edge. */
+.cal-fade-top,
+.cal-fade-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.cal-fade-top {
+  top: 0;
+  height: 20vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+.cal-fade-bottom {
+  bottom: 0;
+  height: 20vh;
+  background: linear-gradient(
+    to top,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+/* --- Topbar (site title + nav), reused from home.css --- */
+
+body.calendar .home-topbar {
+  position: fixed;
+  background: transparent;
+  z-index: 5;
+}
+
+/* --- Events box (reused from home.css) --- */
+
+.calendar-main {
+  margin: 96px 24px 24px;
+  margin-top: auto;
+}
+
+/* .events-box / .events-list / .signature are the exact same
+   classes/styles used for the events preview on the home page. */
+.calendar-main .events-box {
+  margin: 0;
+}
+
+/* --- Hover photo preview (desktop only, see calendar.js) --- */
+
+/* Floating photo that appears next to the cursor while hovering a
+   row, and disappears as soon as the mouse leaves it. */
+.row-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.15s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.row-preview.visible {
+  opacity: 1;
+}
+
+.row-preview img {
+  width: 100%;
+  display: block;
+}
+
+/* --- Mobile / stacked layout (<=1100px) --- */
+
+@media (max-width: 1100px) {
+  /* Hover-triggered photo preview doesn't make sense on touch
+     devices — keep it desktop-only. */
+  .row-preview {
+    display: none;
+  }
+}
+
+/* --- Desktop layout (>1100px) --- */
+
+@media (min-width: 1101px) {
+  .cal-fade-top {
+    height: 220px;
+  }
+
+  .cal-fade-bottom {
+    height: 140px;
+  }
+
+  .calendar-main {
+    margin: 0 40px 40px;
+    margin-top: auto;
+  }
+
+  .calendar-main .events-box {
+    max-width: 504px;
+  }
+}

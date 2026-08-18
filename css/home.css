@@ -1,0 +1,283 @@
+/* ==========================================================================
+   Home page (index.html)
+   Reused site-wide: .home-topbar / .site-title are the shared header,
+   restyled per page (position:fixed instead of absolute) everywhere
+   else. ========================================================== */
+
+/* --- Layout: two-column split, video left / content right --- */
+
+body.home {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.home-layout {
+  position: relative;
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 32px 32px 32px 0;
+  gap: 32px;
+}
+
+/* --- Topbar: site title + nav --- */
+
+.home-topbar {
+  position: absolute;
+  top: 7px;
+  left: 32px;
+  right: 32px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.home-topbar .site-title {
+  font-weight: normal;
+  font-size: 2rem;
+  margin: 0;
+  color: #23241f;
+}
+
+.home-topbar nav ul {
+  display: flex;
+  gap: 40px;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-topbar nav a {
+  font-style: italic;
+  font-size: 1.1875rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-topbar nav a:hover,
+.home-topbar nav a.active {
+  text-decoration: underline;
+}
+
+/* --- Hero video + top/bottom fade-to-white gradients --- */
+
+.home-image {
+  flex: 1 1 60%;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-image::before,
+.home-image::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14%;
+  pointer-events: none;
+}
+
+.home-image::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+.home-image::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+/* --- Right column: upcoming events box + signature, pinned to the
+   bottom of the column --- */
+
+.home-content {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-main {
+  margin-top: auto;
+}
+
+.events-box {
+  border: 0.5px solid #23241f;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.events-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.events-list li {
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+  font-size: 1.0625rem;
+  padding: 3px 0;
+}
+
+.events-list li span {
+  flex: 1;
+}
+
+.events-list li span:nth-child(2) {
+  text-align: center;
+}
+
+.events-list li span:nth-child(3) {
+  text-align: right;
+}
+
+.events-box hr {
+  border: none;
+  border-top: 0.5px solid #23241f;
+  margin: 0 -20px 20px;
+  width: calc(100% + 40px);
+}
+
+.signature {
+  text-align: center;
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+.site-title-mobile {
+  display: none;
+}
+
+/* --- Mobile / stacked layout (<=1100px) --- */
+
+@media (max-width: 1100px) {
+  .home-layout {
+    display: block;
+    padding: 0;
+  }
+
+  .home-topbar {
+    left: 24px;
+    right: 24px;
+    width: calc(100% - 48px);
+    top: 20px;
+    justify-content: center;
+  }
+
+  .home-topbar .site-title {
+    display: none;
+  }
+
+  .home-topbar nav {
+    width: 100%;
+  }
+
+  .home-topbar nav ul {
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .home-topbar nav a {
+    font-size: calc(clamp(1rem, 1.6vw, 1.1875rem) + 0.5pt);
+  }
+
+  .home-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-image::before {
+    height: 20%;
+  }
+
+  .home-image::after {
+    height: 90%;
+  }
+
+  .home-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 24px 24px;
+    box-sizing: border-box;
+  }
+
+  .home-main {
+    margin-top: 0;
+  }
+
+  .site-title-mobile {
+    display: block;
+    font-weight: normal;
+    font-size: 1.75rem;
+    margin: 0 0 16px;
+    color: #23241f;
+    width: 100%;
+    text-align: center;
+  }
+
+  .events-list li {
+    font-size: clamp(0.85rem, 1.8vw, 1.0625rem);
+  }
+
+  .signature {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title-mobile {
+    font-size: 8.3vw;
+    text-align: left;
+    white-space: nowrap;
+  }
+}

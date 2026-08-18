@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&display=swap');
+
+/* ==========================================================================
+   Work index page (work/index.html)
+   Full-bleed video background on the right, accordion menu of
+   categories (Creating / Creating and Performing) on the left/over
+   the video. ============================================================ */
+
+/* --- Base layout --- */
+
+body.work {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  display: flow-root;
+}
+
+body.work main {
+  margin: 25vh 32px 64px;
+}
+
+@media (max-width: 1100px) {
+  body.work main {
+    margin: 0 24px 220px;
+    padding-top: 100px;
+  }
+}
+
+/* Reuses .home-topbar / .site-title from home.css so the header
+   is identical across pages, at every breakpoint. The only addition
+   is `position: fixed` (instead of absolute, since this page scrolls)
+   — top, left, right and justify-content are intentionally left
+   untouched so home.css's own responsive rules (desktop vs.
+   <=1100px) keep controlling them. No background here either: exactly
+   like on the home page, the topbar itself stays transparent, and the
+   fade-to-white effect comes from the video's own top gradient
+   (.work-video-inner::before, below) — not from the header. */
+body.work .home-topbar {
+  position: fixed;
+  z-index: 5;
+}
+
+/* --- Full-bleed hero video + fade-to-white gradients --- */
+
+.work-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  height: 70vh;
+  padding: 24px;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.work-video-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.work-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work-video-inner::before,
+.work-video-inner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.work-video-inner::before {
+  top: 0;
+  height: 14%;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+.work-video-inner::after {
+  bottom: 0;
+  height: 25%;
+  background: linear-gradient(
+    to top,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+/* --- Accordion menu (categories + project links) --- */
+
+.work-menu {
+  position: relative;
+  z-index: 1;
+  margin: 25vh 0 64px 32px;
+  width: calc(100% - 64px);
+  max-width: 30rem;
+  background: transparent;
+  border: 0.5px solid #23241f;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.accordion-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  padding: 0 1rem;
+  font-family: "Abhaya Libre", serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Dividers between topics come from each summary's own top border
+   (except the first, which relies on the box's own top border) —
+   never from the collapsible content's bottom edge. That way the
+   line never depends on whether the previous topic is open/closed,
+   and never doubles up with the box's own border. */
+.accordion-item:not(:first-child) summary {
+  border-top: 0.5px solid #23241f;
+}
+
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-item summary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.accordion-icon {
+  position: relative;
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+  content: "";
+  position: absolute;
+  background: #23241f;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.accordion-icon::before {
+  width: 100%;
+  height: 1px;
+}
+
+.accordion-icon::after {
+  width: 1px;
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.accordion-item[open] .accordion-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-link {
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-family: "Abhaya Libre", serif;
+  font-weight: 400;
+  font-size: calc(0.9rem + 3.5pt);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-top: 0.5px solid #23241f;
+  color: #23241f;
+}
+
+.accordion-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Mobile / stacked layout (<=1100px) --- */
+
+@media (max-width: 1100px) {
+  .work-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .work-menu {
+    position: fixed;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    margin: 0;
+    width: auto;
+    max-width: none;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .accordion-link {
+    font-size: calc(0.9rem + 2.5pt);
+  }
+
+  .accordion-item summary:hover,
+  .accordion-link:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .work-video-inner::before {
+    height: 20%;
+  }
+
+  .work-video-inner::after {
+    height: 90%;
+  }
+}
+
+/* --- Desktop layout (>1100px) --- */
+
+/* Aligned to the same spot as the project-name box on the project
+   pages (e.g. enquanto-espero.html): fixed, top:88px, left:40px. */
+@media (min-width: 1101px) {
+  .work-menu {
+    position: fixed;
+    top: 88px;
+    left: 40px;
+    margin: 0;
+    width: 380px;
+    max-width: none;
+  }
+}

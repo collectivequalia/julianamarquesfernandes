@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&display=swap');
+
+/* ==========================================================================
+   Project detail pages (work/*/*.html)
+   Shared by every individual project page: Enquanto Espero, Blueprint,
+   Na Ausência, Sinos, Em.Pressão, Lentidão, Revoada, Sonata, Everyours.
+   Layout: crumb (title) + facts (synopsis/credits/dates) on the left,
+   media (video/image) + gallery on the right. ======================= */
+
+/* --- Base / scrollbar --- */
+
+html.project-page,
+body.project {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html.project-page::-webkit-scrollbar,
+body.project::-webkit-scrollbar {
+  display: none;
+}
+
+body.project {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  display: flow-root;
+}
+
+/* --- Fade-to-white gradients (top/bottom, fixed to viewport) --- */
+
+/* Full-bleed, fixed to the viewport (not the video): unlike home/work,
+   the video on this page is normal scrolling content, not a
+   fixed-position element, so a gradient anchored to the video would
+   scroll away with it. These stay put behind the fixed nav / bottom
+   edge regardless of scroll, edge to edge. */
+.project-fade-top,
+.project-fade-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.project-fade-top {
+  top: 0;
+  height: 20vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+.project-fade-bottom {
+  bottom: 0;
+  height: 20vh;
+  background: linear-gradient(
+    to top,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(253, 253, 253, 0.987) 8.1%,
+    rgba(253, 253, 253, 0.951) 15.5%,
+    rgba(253, 253, 253, 0.896) 22.5%,
+    rgba(253, 253, 253, 0.825) 29%,
+    rgba(253, 253, 253, 0.741) 35.3%,
+    rgba(253, 253, 253, 0.648) 41.2%,
+    rgba(253, 253, 253, 0.55) 47.1%,
+    rgba(253, 253, 253, 0.45) 52.9%,
+    rgba(253, 253, 253, 0.352) 58.8%,
+    rgba(253, 253, 253, 0.259) 64.7%,
+    rgba(253, 253, 253, 0.175) 71%,
+    rgba(253, 253, 253, 0.104) 77.5%,
+    rgba(253, 253, 253, 0.049) 84.5%,
+    rgba(253, 253, 253, 0.013) 91.9%,
+    rgba(253, 253, 253, 0) 100%
+  );
+}
+
+/* --- Topbar (site title + nav), reused from home.css --- */
+
+body.project .home-topbar {
+  position: fixed;
+  z-index: 5;
+  background: transparent;
+}
+
+/* --- Crumb (back link + title + keywords) and facts box (shared
+   typography — applies at every breakpoint) --- */
+
+.project-crumb {
+  background: #fdfdfd;
+  border: 0.5px solid #23241f;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.crumb-back {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  padding: 0 1rem;
+  border-bottom: 0.5px solid #23241f;
+  font-family: "Abhaya Libre", serif;
+  font-size: 1.1rem;
+  color: #23241f;
+  text-decoration: none;
+}
+
+.crumb-back:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.crumb-arrow {
+  font-size: 1.2rem;
+}
+
+.crumb-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+}
+
+.project-name {
+  font-family: "Abhaya Libre", serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+  color: #23241f;
+}
+
+/* Keywords describing the piece — not links to other projects. */
+.keyword-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.keyword-list li {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #23241f;
+  line-height: 1.4;
+}
+
+.project-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-media video,
+.project-media img {
+  width: 100%;
+  display: block;
+}
+
+/* Synopsis, credits and dates all sit inside one shared box, back
+   to back, each separated only by a single divider line — never as
+   separate boxes with a gap between them. */
+.project-facts {
+  border: 0.5px solid #23241f;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-facts section {
+  padding: 1rem;
+}
+
+.project-facts section + section {
+  border-top: 0.5px solid #23241f;
+}
+
+.project-facts h2 {
+  font-family: "Abhaya Libre", serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 0 1em;
+}
+
+.project-facts p {
+  margin: 0 0 0.6em;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.project-facts p:last-child {
+  margin-bottom: 0;
+}
+
+.project-description p {
+  margin: 0 0 1em;
+}
+
+.project-quote {
+  font-style: italic;
+}
+
+.project-credits p,
+.project-dates p {
+  font-size: 10pt;
+  line-height: 1.2;
+  margin-bottom: 0.6em;
+}
+
+.project-facts em {
+  font-style: italic;
+}
+
+.project-facts a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.project-note {
+  margin-top: 1em;
+  font-style: italic;
+}
+
+/* --- Gallery + lightbox (click-to-enlarge overlay) --- */
+
+.project-gallery img {
+  display: block;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  box-sizing: border-box;
+  cursor: zoom-out;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.lightbox-caption {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  margin: 0;
+  color: #fdfdfd;
+  font-size: 0.85rem;
+  cursor: default;
+}
+
+/* --- Mobile / stacked layout (<=1100px): everything in a single
+   column, crumb box pinned in place while the rest scrolls.
+   The desktop markup groups crumb+facts and media+gallery into
+   left/right wrapper columns; on mobile those wrappers are made
+   transparent to layout (display:contents) so their children
+   become direct flex items again, and `order` restores the
+   original crumb → media → facts → gallery reading order. --- */
+@media (max-width: 1100px) {
+  .project-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-left,
+  .project-right,
+  .project-left-sticky {
+    display: contents;
+  }
+
+  .project-crumb {
+    order: 1;
+    position: fixed;
+    top: 58px;
+    left: 16px;
+    right: 16px;
+    z-index: 6;
+  }
+
+  .project-media {
+    order: 2;
+  }
+
+  .project-facts {
+    order: 3;
+  }
+
+  .project-gallery {
+    order: 4;
+  }
+
+  .project-media {
+    margin: 206px 16px 0;
+  }
+
+  .project-facts {
+    margin: 16px 16px 0;
+  }
+
+  .project-gallery {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .project-gallery img:nth-child(1) {
+    width: 92%;
+    align-self: flex-start;
+  }
+
+  .project-gallery img:nth-child(2) {
+    width: 80%;
+    align-self: flex-end;
+  }
+
+  .project-gallery img:nth-child(3) {
+    width: 88%;
+    align-self: flex-start;
+  }
+
+  .project-gallery img:nth-child(4) {
+    width: 84%;
+    align-self: flex-end;
+  }
+
+  .project-gallery img:nth-child(5) {
+    width: 90%;
+    align-self: flex-start;
+  }
+
+  .project-gallery img:nth-child(6) {
+    width: 82%;
+    align-self: flex-end;
+  }
+
+  .project-gallery img:nth-child(7) {
+    width: 88%;
+    align-self: flex-start;
+  }
+
+  .project-gallery img:nth-child(8) {
+    width: 86%;
+    align-self: flex-end;
+  }
+
+  .project-gallery img:nth-child(9) {
+    width: 90%;
+    align-self: flex-start;
+  }
+}
+
+/* --- Desktop / tablet-wide layout (>1100px): two independent scroll
+   panes. The crumb (title) box is genuinely fixed — always in the
+   same spot, in front of the top fade. Below it, the facts box
+   (synopsis / credits / dates) scrolls on its own, in a pane sized to
+   the left column; the video/gallery on the right scrolls separately,
+   in its own pane of the same height. Neither scroll affects the
+   other, and the body itself never scrolls. --- */
+@media (min-width: 1101px) {
+  .project-fade-bottom {
+    height: 140px;
+  }
+
+  .project-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    padding: 88px 40px 40px;
+    box-sizing: border-box;
+  }
+
+  .project-left {
+    flex: 0 0 380px;
+  }
+
+  .project-crumb {
+    position: fixed;
+    top: 88px;
+    left: 40px;
+    width: 380px;
+    z-index: 6;
+  }
+
+  /* Its own fixed, independently scrolling pane. The box itself
+     starts at the same top offset as the crumb (88px) — not below it
+     — so scrolled content can slide all the way up behind the full
+     height of the crumb and get masked by it (higher z-index, opaque
+     background), same as before. padding-top pushes the resting
+     (unscrolled) content down to 230px, the same visual gap under the
+     crumb that the old sticky offset produced. Runs down to the same
+     bottom margin as the rest of the page. Scrolling inside it never
+     touches the right column's scroll, and vice versa. Scrollbar
+     hidden for the same reason it's hidden on the page itself —
+     functional, not shown. */
+  .project-left-sticky {
+    position: fixed;
+    top: 88px;
+    left: 40px;
+    width: 380px;
+    bottom: 40px;
+    padding-top: 142px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .project-left-sticky::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Same idea as .project-left-sticky: its own fixed, independently
+     scrolling pane, positioned where the flex layout used to place
+     it (40 + 380 + 40 gap = 460 from the left, 40 from the right). */
+  .project-right {
+    position: fixed;
+    top: 88px;
+    left: 460px;
+    right: 40px;
+    bottom: 40px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .project-right::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-facts {
+    z-index: 2;
+  }
+
+  .project-fade-top {
+    height: 220px;
+  }
+
+  .project-media {
+    margin: 0 0 24px;
+    height: calc(100vh - 88px - 40px);
+  }
+
+  .project-media video,
+  .project-media img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-gallery {
+    position: relative;
+  }
+
+  .project-gallery img {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-gallery img:nth-child(1) {
+    width: 62%;
+  }
+
+  .project-gallery img:nth-child(2) {
+    width: 46%;
+    margin-top: -12%;
+    margin-left: 42%;
+  }
+
+  .project-gallery img:nth-child(3) {
+    width: 50%;
+    margin-top: -10%;
+    margin-left: 6%;
+  }
+
+  .project-gallery img:nth-child(4) {
+    width: 48%;
+    margin-top: -10%;
+    margin-left: 46%;
+  }
+
+  .project-gallery img:nth-child(5) {
+    width: 44%;
+    margin-top: -8%;
+    margin-left: 4%;
+  }
+
+  .project-gallery img:nth-child(6) {
+    width: 40%;
+    margin-top: -8%;
+    margin-left: 54%;
+  }
+
+  .project-gallery img:nth-child(7) {
+    width: 42%;
+    margin-top: -6%;
+    margin-left: 10%;
+  }
+
+  .project-gallery img:nth-child(8) {
+    width: 38%;
+    margin-top: -8%;
+    margin-left: 50%;
+  }
+
+  .project-gallery img:nth-child(9) {
+    width: 46%;
+    margin-top: -6%;
+    margin-left: 8%;
+  }
+}
