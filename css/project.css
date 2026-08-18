@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&display=swap');
+/* Abhaya Libre / Fanwood Text are loaded once via <link> in each
+   page's own <head> (faster than @import, which blocks on an extra
+   round trip). ========================================================== */
 
 /* ==========================================================================
    Project detail pages (work/*/*.html)
@@ -22,7 +24,10 @@ body.project::-webkit-scrollbar {
 
 body.project {
   position: relative;
+  /* See the comment on body.home in home.css: 100svh avoids content
+     being clipped behind the mobile browser's toolbar. */
   min-height: 100vh;
+  min-height: 100svh;
   margin: 0;
   display: flow-root;
 }
@@ -142,6 +147,8 @@ body.project .home-topbar {
   font-family: "Abhaya Libre", serif;
   font-weight: 600;
   font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   margin: 0;
   color: #23241f;
 }

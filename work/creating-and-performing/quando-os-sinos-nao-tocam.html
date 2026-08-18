@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>When the Bells Don't Chime — Juliana Marques Fernandes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&family=Fanwood+Text:ital@0;1&display=swap">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/home.css">
   <link rel="stylesheet" href="../../css/project.css">
@@ -88,6 +91,45 @@
 
     body.project.sinos-purple .project-facts a {
       color: #fdfdfd;
+    }
+
+    /* Video streamed from Vimeo instead of a local file, to keep the
+       page light. Vimeo's background-mode embed only ever *contains*
+       the video within the iframe box (letterboxed when the box's
+       proportions don't match the video's own), unlike a local
+       <video> with object-fit:cover. This recreates that same cover
+       behaviour: the iframe is sized larger than its box (matching
+       the video's own 16:9) and centred, so it always overflows and
+       gets cropped by the box. The poster image sits behind it as a
+       background so the box is never empty while it loads. */
+    .project-media {
+      position: relative;
+      overflow: hidden;
+      background-image: url("../../assets/images/sinos-trailer-poster.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-media iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      border: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-media iframe.is-ready {
+      opacity: 1;
+    }
+
+    @media (max-width: 1100px) {
+      .project-media {
+        aspect-ratio: 16 / 9;
+      }
     }
 
     /* Experimental scattered gallery layout for this page only:
@@ -178,6 +220,9 @@
           <p><em>Creation</em> - Juliana&nbsp;Fernandes</p>
           <p><em>Performance</em> - Juliana&nbsp;Fernandes</p>
           <p><em>Sound Design</em> - Juliana&nbsp;Fernandes</p>
+          <p><em>Lights</em> - Helder&nbsp;Cunha</p>
+          <p><em>Register</em> - Florian&nbsp;Astraudo</p>
+          <p><em>Support</em> - Performact</p>
         </section>
         <section class="project-dates">
           <h2>Performed at</h2>
@@ -189,7 +234,7 @@
 
     <div class="project-right">
       <div class="project-media">
-        <video src="../../assets/videos/sinos-trailer.mp4" autoplay muted loop playsinline></video>
+        <iframe src="https://player.vimeo.com/video/581195920?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1" allow="autoplay; fullscreen" title="When the Bells Don't Chime trailer"></iframe>
       </div>
 
       <div class="project-gallery">
@@ -206,6 +251,8 @@
   </div>
 
   <script src="../../js/lightbox.js"></script>
+
+  <script src="../../js/vimeo-resume.js"></script>
 
 </body>
 </html>

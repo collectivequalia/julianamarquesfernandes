@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Everyours — Juliana Marques Fernandes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&family=Fanwood+Text:ital@0;1&display=swap">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/home.css">
   <link rel="stylesheet" href="../../css/project.css">
@@ -21,6 +24,44 @@
     @media (min-width: 1101px) {
       .project-gallery img:nth-child(1) {
         width: 31%;
+      }
+    }
+
+    /* Video streamed from Vimeo instead of a local file, to keep the
+       page light. Vimeo's background-mode embed only ever *contains*
+       the video within the iframe box (letterboxed when the box's
+       proportions don't match the video's own), unlike a local
+       <video> with object-fit:cover. This recreates that same cover
+       behaviour: the iframe is sized larger than its box (matching
+       the video's own 16:9) and centred, so it always overflows and
+       gets cropped by the box. */
+    .project-media {
+      position: relative;
+      overflow: hidden;
+      background-image: url("../../assets/images/everyours-trailer-poster.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-media iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      border: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-media iframe.is-ready {
+      opacity: 1;
+    }
+
+    @media (max-width: 1100px) {
+      .project-media {
+        aspect-ratio: 16 / 9;
       }
     }
   </style>
@@ -63,6 +104,13 @@
     <div class="project-left-sticky">
       <div class="project-facts">
         <section class="project-credits">
+          <p><em>Creation</em> - Juliana&nbsp;Fernandes</p>
+          <p><em>Co-creation and Performance</em> - Bart Nusink, Eva Anouk, Marlen Pflüger, Rebecca Läng, Mariana Oliveira, Emilio Bagnasco and Maxime&nbsp;Renaud-Cavanna</p>
+          <p><em>Trailer and Music Edition</em> - Juliana&nbsp;Fernandes</p>
+          <p><em>Footage</em> - Multiplicidades Festival, Florian&nbsp;Astraudo</p>
+          <p><em>Support</em> - Performact</p>
+        </section>
+        <section class="project-credits">
           <p><em>Music</em></p>
           <p>Arborescence &ndash; &Uacute;lfur</p>
           <p>Serpentine &ndash; &Uacute;lfur</p>
@@ -78,20 +126,30 @@
 
     <div class="project-right">
       <div class="project-media">
-        <video src="../../assets/videos/everyours-trailer.mp4" autoplay muted loop playsinline></video>
+        <iframe src="https://player.vimeo.com/video/471144367?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1" allow="autoplay; fullscreen" title="Everyours trailer"></iframe>
       </div>
 
       <div class="project-gallery">
         <img src="../../assets/images/everyours1.jpg" alt="Performers holding coloured balloons on stage, Everyours">
+        <img src="../../assets/images/everyours2.jpg" alt="Two performers in a dark balancing pose, Everyours">
+        <img src="../../assets/images/everyours3.jpg" alt="Three performers with blue-painted lips on a dark stage, Everyours">
+        <img src="../../assets/images/everyours4.jpg" alt="Four performers in a red-lit ensemble pose, Everyours">
+        <img src="../../assets/images/everyours5.jpg" alt="Performer bent backward holding a bunch of balloons, Everyours">
+        <img src="../../assets/images/everyours6.jpg" alt="Three performers in blue shirts standing in dim light, Everyours">
+        <img src="../../assets/images/everyours7.jpg" alt="Three performers' faces close together in an intimate portrait, Everyours">
+        <img src="../../assets/images/everyours8.jpg" alt="Performer curled on the floor in a red costume, Everyours">
       </div>
     </div>
   </div>
 
   <div class="lightbox" id="lightbox">
     <img src="" alt="">
+    <p class="lightbox-caption">&copy; Florian Astraudo</p>
   </div>
 
   <script src="../../js/lightbox.js"></script>
+
+  <script src="../../js/vimeo-resume.js"></script>
 
 </body>
 </html>

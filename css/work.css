@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&display=swap');
+/* Abhaya Libre / Fanwood Text are loaded once via <link> in each
+   page's own <head> (faster than @import, which blocks on an extra
+   round trip). ========================================================== */
 
 /* ==========================================================================
    Work index page (work/index.html)
@@ -10,7 +12,10 @@
 
 body.work {
   position: relative;
+  /* See the comment on body.home in home.css: 100svh avoids content
+     being clipped behind the mobile browser's toolbar. */
   min-height: 100vh;
+  min-height: 100svh;
   margin: 0;
   display: flow-root;
 }
@@ -31,10 +36,9 @@ body.work main {
    is `position: fixed` (instead of absolute, since this page scrolls)
    — top, left, right and justify-content are intentionally left
    untouched so home.css's own responsive rules (desktop vs.
-   <=1100px) keep controlling them. No background here either: exactly
-   like on the home page, the topbar itself stays transparent, and the
-   fade-to-white effect comes from the video's own top gradient
-   (.work-video-inner::before, below) — not from the header. */
+   <=1100px) keep controlling them. No background here either, and no
+   fade at the top of the video on this page (unlike other pages) —
+   only the bottom fade (.work-video-inner::after, below) is used. */
 body.work .home-topbar {
   position: fixed;
   z-index: 5;
@@ -67,37 +71,12 @@ body.work .home-topbar {
   display: block;
 }
 
-.work-video-inner::before,
 .work-video-inner::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   pointer-events: none;
-}
-
-.work-video-inner::before {
-  top: 0;
-  height: 14%;
-  background: linear-gradient(
-    to bottom,
-    rgba(253, 253, 253, 1) 0%,
-    rgba(253, 253, 253, 0.987) 8.1%,
-    rgba(253, 253, 253, 0.951) 15.5%,
-    rgba(253, 253, 253, 0.896) 22.5%,
-    rgba(253, 253, 253, 0.825) 29%,
-    rgba(253, 253, 253, 0.741) 35.3%,
-    rgba(253, 253, 253, 0.648) 41.2%,
-    rgba(253, 253, 253, 0.55) 47.1%,
-    rgba(253, 253, 253, 0.45) 52.9%,
-    rgba(253, 253, 253, 0.352) 58.8%,
-    rgba(253, 253, 253, 0.259) 64.7%,
-    rgba(253, 253, 253, 0.175) 71%,
-    rgba(253, 253, 253, 0.104) 77.5%,
-    rgba(253, 253, 253, 0.049) 84.5%,
-    rgba(253, 253, 253, 0.013) 91.9%,
-    rgba(253, 253, 253, 0) 100%
-  );
 }
 
 .work-video-inner::after {
@@ -212,8 +191,8 @@ body.work .home-topbar {
   padding: 0 1rem;
   font-family: "Abhaya Libre", serif;
   font-weight: 400;
-  font-size: calc(0.9rem + 3.5pt);
-  font-variant: small-caps;
+  font-size: calc(0.9rem + 0.5pt);
+  text-transform: uppercase;
   letter-spacing: 0.03em;
   text-decoration: none;
   border-top: 0.5px solid #23241f;
@@ -248,7 +227,7 @@ body.work .home-topbar {
   }
 
   .accordion-link {
-    font-size: calc(0.9rem + 2.5pt);
+    font-size: calc(0.9rem - 0.5pt);
   }
 
   .accordion-item summary:hover,
@@ -256,12 +235,41 @@ body.work .home-topbar {
     background-color: rgba(255, 255, 255, 0.4);
   }
 
-  .work-video-inner::before {
-    height: 20%;
-  }
-
   .work-video-inner::after {
     height: 90%;
+  }
+
+  /* On mobile the video goes full-bleed behind the (transparent)
+     topbar, unlike desktop where it's boxed in the corner — so
+     unlike the rest of this page, a top fade is needed here too,
+     purely to keep the nav readable over the video. */
+  .work-video-inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(253, 253, 253, 1) 0%,
+      rgba(253, 253, 253, 0.987) 8.1%,
+      rgba(253, 253, 253, 0.951) 15.5%,
+      rgba(253, 253, 253, 0.896) 22.5%,
+      rgba(253, 253, 253, 0.825) 29%,
+      rgba(253, 253, 253, 0.741) 35.3%,
+      rgba(253, 253, 253, 0.648) 41.2%,
+      rgba(253, 253, 253, 0.55) 47.1%,
+      rgba(253, 253, 253, 0.45) 52.9%,
+      rgba(253, 253, 253, 0.352) 58.8%,
+      rgba(253, 253, 253, 0.259) 64.7%,
+      rgba(253, 253, 253, 0.175) 71%,
+      rgba(253, 253, 253, 0.104) 77.5%,
+      rgba(253, 253, 253, 0.049) 84.5%,
+      rgba(253, 253, 253, 0.013) 91.9%,
+      rgba(253, 253, 253, 0) 100%
+    );
   }
 }
 

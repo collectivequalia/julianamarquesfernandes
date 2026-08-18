@@ -4,31 +4,34 @@
    restyled per page (position:fixed instead of absolute) everywhere
    else. ========================================================== */
 
-/* --- Layout: two-column split, video left / content right --- */
+/* --- Layout: full-bleed video background, topbar + events box
+   overlaid on top of it --- */
 
 body.home {
+  /* 100vh ignores the mobile browser's address/toolbar chrome, which
+     shows and hides on scroll — content can end up clipped behind it.
+     100svh ("small viewport height") always accounts for that chrome
+     being visible, so nothing gets cut off. Plain vh stays as a
+     fallback for browsers that don't support svh yet. */
   height: 100vh;
+  height: 100svh;
   margin: 0;
   overflow: hidden;
 }
 
 .home-layout {
   position: relative;
-  display: flex;
   height: 100%;
-  box-sizing: border-box;
-  padding: 32px 32px 32px 0;
-  gap: 32px;
 }
 
 /* --- Topbar: site title + nav --- */
 
 .home-topbar {
-  position: absolute;
+  position: fixed;
   top: 7px;
   left: 32px;
   right: 32px;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -65,8 +68,9 @@ body.home {
 /* --- Hero video + top/bottom fade-to-white gradients --- */
 
 .home-image {
-  flex: 1 1 60%;
-  position: relative;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   overflow: hidden;
 }
 
@@ -133,29 +137,54 @@ body.home {
   );
 }
 
-/* --- Right column: upcoming events box + signature, pinned to the
-   bottom of the column --- */
+/* --- Events box, overlaid on top of the video, bottom right --- */
 
 .home-content {
-  flex: 1 1 40%;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  left: 32px;
+  z-index: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .home-main {
-  margin-top: auto;
+  width: 100%;
+  max-width: 420px;
 }
 
 .events-box {
+  background: #fdfdfd;
   border: 0.5px solid #23241f;
   border-radius: 12px;
   padding: 16px 20px;
 }
 
+/* Home's own box floats over the hero video, so it gets a
+   translucent white instead of the solid #fdfdfd used on
+   calendar.html's own page. */
+.home-main .events-box {
+  background: rgba(253, 253, 253, 0.65);
+}
+
+.events-heading {
+  margin: 0 0 10px;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.0625rem;
+}
+
 .events-list {
   list-style: none;
-  margin: 0 0 12px;
+  margin: 0;
   padding: 0;
+}
+
+/* Matches the calendar page's own font-size bump — kept in sync
+   since this list mirrors calendar.html's. */
+.home-main .events-list li {
+  font-size: calc(1.0625rem + 0.5pt);
 }
 
 .events-list li {
@@ -178,17 +207,31 @@ body.home {
   text-align: right;
 }
 
+/* 2-column row: name+date stacked on the left, location on the
+   right — same structure/classes as calendar.css, which the home
+   preview box must stay in sync with. */
+.events-list .event-name {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.events-list .event-date {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+.events-box .events-list .event-location {
+  flex: 1;
+  text-align: right;
+}
+
 .events-box hr {
   border: none;
   border-top: 0.5px solid #23241f;
   margin: 0 -20px 20px;
   width: calc(100% + 40px);
-}
-
-.signature {
-  text-align: center;
-  margin: 0;
-  font-size: 1.0625rem;
 }
 
 .site-title-mobile {
@@ -228,11 +271,6 @@ body.home {
     font-size: calc(clamp(1rem, 1.6vw, 1.1875rem) + 0.5pt);
   }
 
-  .home-image {
-    width: 100%;
-    height: 100%;
-  }
-
   .home-image::before {
     height: 20%;
   }
@@ -242,12 +280,15 @@ body.home {
   }
 
   .home-content {
-    position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     padding: 0 24px 24px;
     box-sizing: border-box;
+  }
+
+  .home-main {
+    max-width: none;
   }
 
   .home-main {
@@ -264,14 +305,6 @@ body.home {
     text-align: center;
   }
 
-  .events-list li {
-    font-size: clamp(0.85rem, 1.8vw, 1.0625rem);
-  }
-
-  .signature {
-    font-size: 0.8rem;
-    margin-top: 8px;
-  }
 }
 
 @media (max-width: 480px) {

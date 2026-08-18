@@ -3,3 +3,8 @@
 
 # Claude Code local settings (not part of the site)
 .claude/
+
+# Original/raw source footage kept for reference (posters/trailers are
+# cut from these) — not used by the site itself, too large to commit.
+assets/videos/self/
+assets/videos/bellstrailer.mp4

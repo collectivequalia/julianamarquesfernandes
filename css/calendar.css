@@ -10,7 +10,10 @@ body.calendar {
   margin: 0;
   display: flex;
   flex-direction: column;
+  /* See the comment on body.home in home.css: 100svh avoids content
+     being clipped behind the mobile browser's toolbar. */
   min-height: 100vh;
+  min-height: 100svh;
   box-sizing: border-box;
 }
 
@@ -89,10 +92,18 @@ body.calendar .home-topbar {
   margin-top: auto;
 }
 
-/* .events-box / .events-list / .signature are the exact same
-   classes/styles used for the events preview on the home page. */
+/* .events-box / .events-list / .signature (and the .event-name /
+   .event-date / .event-location 2-column layout) are the exact same
+   classes/styles used for the events preview on the home page —
+   defined once in home.css and shared. Only the larger font-size and
+   extra row spacing are specific to the calendar's own bigger box. */
 .calendar-main .events-box {
   margin: 0;
+}
+
+.calendar-main .events-list li {
+  font-size: calc(1.0625rem + 0.5pt);
+  padding: 10px 0;
 }
 
 /* --- Hover photo preview (desktop only, see calendar.js) --- */
@@ -129,6 +140,15 @@ body.calendar .home-topbar {
   .row-preview {
     display: none;
   }
+
+  /* Fixed offset instead of the base rule's margin-top:auto — with
+     10 events the list already fills the viewport, leaving auto
+     nothing to push down with, so the box starts right under the
+     topbar. This pushes it down a further ~40px regardless of
+     content length, and lets the page scroll normally. */
+  .calendar-main {
+    margin-top: 115px;
+  }
 }
 
 /* --- Desktop layout (>1100px) --- */
@@ -148,6 +168,6 @@ body.calendar .home-topbar {
   }
 
   .calendar-main .events-box {
-    max-width: 504px;
+    max-width: 650px;
   }
 }

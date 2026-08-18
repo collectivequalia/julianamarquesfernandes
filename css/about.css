@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&display=swap');
+/* Abhaya Libre / Fanwood Text are loaded once via <link> in each
+   page's own <head> (faster than @import, which blocks on an extra
+   round trip). ========================================================== */
 
 /* ==========================================================================
    About page (about.html)
@@ -157,15 +159,63 @@ body.about .home-topbar {
   text-align: center;
 }
 
-/* --- Video --- */
+/* --- Video (streamed from Vimeo — see the cover-crop comment further
+   down, and the inline script in about.html) --- */
 
 .about-media {
   margin: 24px 0 0;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background-image: url("../assets/images/about-trailer-poster.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.about-media video {
-  width: 100%;
+.about-media iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
+  border: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.about-media iframe.is-ready {
+  opacity: 1;
+}
+
+/* --- Mobile / stacked layout (<=1100px): video first, bio+contacts
+   box after — same reading order as the project pages. --- */
+
+@media (max-width: 1100px) {
+  .about-main {
+    margin-top: 60px;
+  }
+
+  .about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-left {
+    order: 2;
+  }
+
+  .about-right {
+    order: 1;
+  }
+
+  /* Spacing between video and box now comes from .about-layout's
+     gap, matching the 24px side margin — this margin would otherwise
+     add extra space above the video, now that it's first. */
+  .about-media {
+    margin: 0;
+  }
 }
 
 /* --- Desktop layout (>1100px) --- */
@@ -211,12 +261,6 @@ body.about .home-topbar {
     margin: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-  }
-
-  .about-media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    aspect-ratio: auto;
   }
 }

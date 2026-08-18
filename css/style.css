@@ -2,7 +2,8 @@
    Global styles, linked by every page: base typography/background,
    plus the site-wide mobile scrollbar hide. ============================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&display=swap');
+/* Fanwood Text is loaded once via <link> in each page's own <head>
+   (faster than @import, which blocks on an extra round trip). */
 
 body {
   background: #fdfdfd;
