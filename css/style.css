@@ -8,6 +8,9 @@
 body {
   background: #fdfdfd;
   font-family: 'Fanwood Text', serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 /* Hide the scrollbar site-wide on mobile (every page links this

@@ -124,7 +124,7 @@ body.work .home-topbar {
   height: 3rem;
   padding: 0 1rem;
   font-family: "Abhaya Libre", serif;
-  font-size: 1.1rem;
+  font-size: calc(1.1rem + 2pt);
   cursor: pointer;
   list-style: none;
 }
@@ -191,7 +191,7 @@ body.work .home-topbar {
   padding: 0 1rem;
   font-family: "Abhaya Libre", serif;
   font-weight: 400;
-  font-size: calc(0.9rem + 0.5pt);
+  font-size: calc(0.9rem + 2.5pt);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   text-decoration: none;
@@ -227,7 +227,7 @@ body.work .home-topbar {
   }
 
   .accordion-link {
-    font-size: calc(0.9rem - 0.5pt);
+    font-size: calc(0.9rem + 1.5pt);
   }
 
   .accordion-item summary:hover,
