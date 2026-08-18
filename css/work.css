@@ -286,4 +286,12 @@ body.work .home-topbar {
     width: 380px;
     max-width: none;
   }
+
+  .accordion-item summary {
+    font-size: calc(1.1rem - 1pt);
+  }
+
+  .accordion-link {
+    font-size: calc(0.9rem - 0.5pt);
+  }
 }
