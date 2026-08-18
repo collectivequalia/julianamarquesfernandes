@@ -10,8 +10,61 @@
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/home.css">
   <link rel="stylesheet" href="../../css/project.css">
+  <!-- Experimental page-only theme: a light dusty/old-rose background
+       instead of the site's usual off-white. Scoped to this page's
+       own class so nothing else is affected — same pattern as the
+       purple theme on the Sinos page. -->
+  <style>
+    body.project.na-ausencia-rose {
+      background: #f0d7da;
+    }
+
+    body.project.na-ausencia-rose .project-fade-top {
+      background: linear-gradient(
+        to bottom,
+        rgba(240, 215, 218, 1) 0%,
+        rgba(240, 215, 218, 0.987) 8.1%,
+        rgba(240, 215, 218, 0.951) 15.5%,
+        rgba(240, 215, 218, 0.896) 22.5%,
+        rgba(240, 215, 218, 0.825) 29%,
+        rgba(240, 215, 218, 0.741) 35.3%,
+        rgba(240, 215, 218, 0.648) 41.2%,
+        rgba(240, 215, 218, 0.55) 47.1%,
+        rgba(240, 215, 218, 0.45) 52.9%,
+        rgba(240, 215, 218, 0.352) 58.8%,
+        rgba(240, 215, 218, 0.259) 64.7%,
+        rgba(240, 215, 218, 0.175) 71%,
+        rgba(240, 215, 218, 0.104) 77.5%,
+        rgba(240, 215, 218, 0.049) 84.5%,
+        rgba(240, 215, 218, 0.013) 91.9%,
+        rgba(240, 215, 218, 0) 100%
+      );
+    }
+
+    body.project.na-ausencia-rose .project-fade-bottom {
+      background: linear-gradient(
+        to top,
+        rgba(240, 215, 218, 1) 0%,
+        rgba(240, 215, 218, 0.987) 8.1%,
+        rgba(240, 215, 218, 0.951) 15.5%,
+        rgba(240, 215, 218, 0.896) 22.5%,
+        rgba(240, 215, 218, 0.825) 29%,
+        rgba(240, 215, 218, 0.741) 35.3%,
+        rgba(240, 215, 218, 0.648) 41.2%,
+        rgba(240, 215, 218, 0.55) 47.1%,
+        rgba(240, 215, 218, 0.45) 52.9%,
+        rgba(240, 215, 218, 0.352) 58.8%,
+        rgba(240, 215, 218, 0.259) 64.7%,
+        rgba(240, 215, 218, 0.175) 71%,
+        rgba(240, 215, 218, 0.104) 77.5%,
+        rgba(240, 215, 218, 0.049) 84.5%,
+        rgba(240, 215, 218, 0.013) 91.9%,
+        rgba(240, 215, 218, 0) 100%
+      );
+    }
+  </style>
 </head>
-<body class="project">
+<body class="project na-ausencia-rose">
 
   <div class="project-fade-top" aria-hidden="true"></div>
   <div class="project-fade-bottom" aria-hidden="true"></div>
