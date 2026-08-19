@@ -4,7 +4,7 @@
    a floating photo preview that follows the cursor on row hover
    (desktop only). ======================================================= */
 
-/* --- Base layout: events box bottom-anchored via margin-top:auto --- */
+/* --- Base layout --- */
 
 body.calendar {
   margin: 0;
@@ -162,17 +162,26 @@ body.calendar .home-topbar {
     height: 140px;
   }
 
-  /* margin-top:auto on .calendar-main bottom-anchors the box, but on
-     its own has no floor — on a short window it can shrink to 0 and
-     the box ends up right under the topbar. This padding on the flex
-     container guarantees at least 100px above it regardless. */
-  body.calendar {
-    padding-top: 100px;
+  /* Fixed pane instead of margin-top:auto bottom-anchoring — same
+     technique as .about-right. margin-top:auto had no floor: on a
+     short window it shrank to 0 and the box rode up under the
+     topbar. Pinning top/bottom means the box's position never
+     depends on viewport height; if the list is taller than the
+     available space it scrolls inside its own pane instead. */
+  .calendar-main {
+    position: fixed;
+    top: 100px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    margin: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .calendar-main {
-    margin: 0 40px 40px;
-    margin-top: auto;
+  .calendar-main::-webkit-scrollbar {
+    display: none;
   }
 
   .calendar-main .events-box {
