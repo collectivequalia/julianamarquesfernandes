@@ -162,6 +162,14 @@ body.calendar .home-topbar {
     height: 140px;
   }
 
+  /* margin-top:auto on .calendar-main bottom-anchors the box, but on
+     its own has no floor — on a short window it can shrink to 0 and
+     the box ends up right under the topbar. This padding on the flex
+     container guarantees at least 100px above it regardless. */
+  body.calendar {
+    padding-top: 100px;
+  }
+
   .calendar-main {
     margin: 0 40px 40px;
     margin-top: auto;
