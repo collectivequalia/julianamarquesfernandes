@@ -13,6 +13,14 @@ body {
   user-select: none;
 }
 
+/* Kills the default blue flash mobile browsers show on tap (nav
+   links, buttons) — same idea as disabling text selection above,
+   just for the tap state instead of the drag-select state. */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Hide the scrollbar site-wide on mobile (every page links this
    file, so this is the single place to control it). */
 @media (max-width: 1100px) {

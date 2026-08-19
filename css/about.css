@@ -162,11 +162,41 @@ body.about .home-topbar {
 }
 
 /* --- Photo gallery: same cascading/overlapping treatment as
-   .project-gallery on the project pages (varied widths, alternating
-   offsets), instead of a plain grid. --- */
+   .project-gallery on the project pages (varied widths, negative
+   margins pulling each photo up over the last) — same at every
+   breakpoint, not just desktop. --- */
+
+.about-gallery {
+  position: relative;
+}
 
 .about-gallery img {
   display: block;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.about-gallery img:nth-child(1) {
+  width: 62%;
+}
+
+.about-gallery img:nth-child(2) {
+  width: 46%;
+  margin-top: -12%;
+  margin-left: 42%;
+}
+
+.about-gallery img:nth-child(3) {
+  width: 50%;
+  margin-top: -10%;
+  margin-left: 6%;
+}
+
+.about-gallery img:nth-child(4) {
+  width: 48%;
+  margin-top: -10%;
+  margin-left: 46%;
 }
 
 /* --- Mobile / stacked layout (<=1100px): bio+contacts box first,
@@ -196,29 +226,6 @@ body.about .home-topbar {
      add extra space above the gallery. */
   .about-gallery {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .about-gallery img:nth-child(1) {
-    width: 92%;
-    align-self: flex-start;
-  }
-
-  .about-gallery img:nth-child(2) {
-    width: 80%;
-    align-self: flex-end;
-  }
-
-  .about-gallery img:nth-child(3) {
-    width: 88%;
-    align-self: flex-start;
-  }
-
-  .about-gallery img:nth-child(4) {
-    width: 84%;
-    align-self: flex-end;
   }
 }
 
@@ -264,37 +271,5 @@ body.about .home-topbar {
 
   .about-right::-webkit-scrollbar {
     display: none;
-  }
-
-  .about-gallery {
-    position: relative;
-  }
-
-  .about-gallery img {
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  }
-
-  .about-gallery img:nth-child(1) {
-    width: 62%;
-  }
-
-  .about-gallery img:nth-child(2) {
-    width: 46%;
-    margin-top: -12%;
-    margin-left: 42%;
-  }
-
-  .about-gallery img:nth-child(3) {
-    width: 50%;
-    margin-top: -10%;
-    margin-left: 6%;
-  }
-
-  .about-gallery img:nth-child(4) {
-    width: 48%;
-    margin-top: -10%;
-    margin-left: 46%;
   }
 }
