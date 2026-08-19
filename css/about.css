@@ -4,8 +4,8 @@
 
 /* ==========================================================================
    About page (about.html)
-   Bio + contacts box on the left, video on the right (bottom-anchored
-   on desktop, same technique as .work-video). ========================== */
+   Bio + contacts box on the left, photo grid on the right
+   (bottom-anchored on desktop, same technique as .work-video). ========= */
 
 /* --- Base / scrollbar --- */
 
@@ -159,33 +159,22 @@ body.about .home-topbar {
   text-align: center;
 }
 
-/* --- Video (streamed from Vimeo — see the cover-crop comment further
-   down, and the inline script in about.html) --- */
+/* --- Photo grid (2x2 mosaic of portrait photos) --- */
 
-.about-media {
+.about-gallery {
   margin: 24px 0 0;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background-image: url("../assets/images/about-trailer-poster.jpg");
-  background-size: cover;
-  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  aspect-ratio: 3 / 4;
 }
 
-.about-media iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.about-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  border: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.about-media iframe.is-ready {
-  opacity: 1;
 }
 
 /* --- Mobile / stacked layout (<=1100px): video first, bio+contacts
@@ -210,10 +199,10 @@ body.about .home-topbar {
     order: 1;
   }
 
-  /* Spacing between video and box now comes from .about-layout's
+  /* Spacing between the gallery and box now comes from .about-layout's
      gap, matching the 24px side margin — this margin would otherwise
-     add extra space above the video, now that it's first. */
-  .about-media {
+     add extra space above the gallery, now that it's first. */
+  .about-gallery {
     margin: 0;
   }
 }
@@ -257,7 +246,7 @@ body.about .home-topbar {
     z-index: -1;
   }
 
-  .about-media {
+  .about-gallery {
     margin: 0;
     width: 100%;
     height: 100%;

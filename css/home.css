@@ -195,6 +195,22 @@ body.home {
   padding: 3px 0;
 }
 
+/* Rows for events with a source link (e.g. an Instagram or festival
+   page) wrap their spans in an <a> instead of using them directly —
+   this makes the whole row (name, date and location) the click
+   target, not just a piece of text within it. */
+.events-list li > a {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: inherit;
+  text-decoration: none;
+}
+
+.events-list li > a:hover {
+  text-decoration: underline;
+}
+
 .events-list li span {
   flex: 1;
 }
