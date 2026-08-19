@@ -172,7 +172,7 @@ body.home {
   margin: 0 0 10px;
   font-style: italic;
   font-weight: 600;
-  font-size: 1.0625rem;
+  font-size: calc(1.0625rem - 0.5pt);
 }
 
 .events-list {
@@ -215,11 +215,13 @@ body.home {
   display: flex;
   flex-direction: column;
   text-align: left;
+  line-height: 1.15;
 }
 
 .events-list .event-date {
   font-size: 0.85em;
   opacity: 0.7;
+  margin-top: 1px;
 }
 
 .events-box .events-list .event-location {
@@ -272,11 +274,11 @@ body.home {
   }
 
   .home-image::before {
-    height: 20%;
+    height: 15%;
   }
 
   .home-image::after {
-    height: 110%;
+    height: 65%;
     /* Same curve as the shared gradient, but held flat at full white
        for the bottom 40% first, so the content underneath always
        sits on solid white instead of a lingering partial tint. */
