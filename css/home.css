@@ -217,6 +217,12 @@ body.home {
   text-decoration: underline;
 }
 
+/* Home's own mini preview box skips the bold treatment — plain
+   italic like the rest of its rows. */
+.home-main .events-list li > a {
+  font-weight: normal;
+}
+
 .events-list .event-name,
 .events-box .events-list .event-location {
   display: inline;
