@@ -84,22 +84,22 @@ body.work .home-topbar {
   height: 25%;
   background: linear-gradient(
     to top,
-    rgba(253, 253, 253, 1) 0%,
-    rgba(253, 253, 253, 0.987) 8.1%,
-    rgba(253, 253, 253, 0.951) 15.5%,
-    rgba(253, 253, 253, 0.896) 22.5%,
-    rgba(253, 253, 253, 0.825) 29%,
-    rgba(253, 253, 253, 0.741) 35.3%,
-    rgba(253, 253, 253, 0.648) 41.2%,
-    rgba(253, 253, 253, 0.55) 47.1%,
-    rgba(253, 253, 253, 0.45) 52.9%,
-    rgba(253, 253, 253, 0.352) 58.8%,
-    rgba(253, 253, 253, 0.259) 64.7%,
-    rgba(253, 253, 253, 0.175) 71%,
-    rgba(253, 253, 253, 0.104) 77.5%,
-    rgba(253, 253, 253, 0.049) 84.5%,
-    rgba(253, 253, 253, 0.013) 91.9%,
-    rgba(253, 253, 253, 0) 100%
+    rgba(250, 250, 250, 1) 0%,
+    rgba(250, 250, 250, 0.987) 8.1%,
+    rgba(250, 250, 250, 0.951) 15.5%,
+    rgba(250, 250, 250, 0.896) 22.5%,
+    rgba(250, 250, 250, 0.825) 29%,
+    rgba(250, 250, 250, 0.741) 35.3%,
+    rgba(250, 250, 250, 0.648) 41.2%,
+    rgba(250, 250, 250, 0.55) 47.1%,
+    rgba(250, 250, 250, 0.45) 52.9%,
+    rgba(250, 250, 250, 0.352) 58.8%,
+    rgba(250, 250, 250, 0.259) 64.7%,
+    rgba(250, 250, 250, 0.175) 71%,
+    rgba(250, 250, 250, 0.104) 77.5%,
+    rgba(250, 250, 250, 0.049) 84.5%,
+    rgba(250, 250, 250, 0.013) 91.9%,
+    rgba(250, 250, 250, 0) 100%
   );
 }
 
@@ -143,7 +143,7 @@ body.work .home-topbar {
 }
 
 .accordion-item summary:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(250, 250, 250, 0.2);
 }
 
 .accordion-icon {
@@ -182,6 +182,7 @@ body.work .home-topbar {
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease;
+  background-color: #ededed;
 }
 
 .accordion-link {
@@ -200,7 +201,7 @@ body.work .home-topbar {
 }
 
 .accordion-link:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #fcfcfc;
 }
 
 /* --- Mobile / stacked layout (<=1100px) --- */
@@ -223,16 +224,26 @@ body.work .home-topbar {
     width: auto;
     max-width: none;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(250, 250, 250, 0.2);
   }
 
   .accordion-link {
     font-size: calc(0.9rem + 1.5pt);
   }
 
-  .accordion-item summary:hover,
+  .accordion-item summary:hover {
+    background-color: rgba(250, 250, 250, 0.4);
+  }
+
+  /* Translucent versions of the same #ededed/#fcfcfc used on desktop
+     — the mobile menu sits directly over the video, so it needs to
+     stay see-through instead of the solid fill desktop gets. */
+  .accordion-content {
+    background-color: rgba(237, 237, 237, 0.5);
+  }
+
   .accordion-link:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(252, 252, 252, 0.7);
   }
 
   .work-video-inner::after {
@@ -249,26 +260,26 @@ body.work .home-topbar {
     top: 0;
     left: 0;
     right: 0;
-    height: 30%;
+    height: 33%;
     pointer-events: none;
     background: linear-gradient(
       to bottom,
-      rgba(253, 253, 253, 1) 0%,
-      rgba(253, 253, 253, 0.987) 8.1%,
-      rgba(253, 253, 253, 0.951) 15.5%,
-      rgba(253, 253, 253, 0.896) 22.5%,
-      rgba(253, 253, 253, 0.825) 29%,
-      rgba(253, 253, 253, 0.741) 35.3%,
-      rgba(253, 253, 253, 0.648) 41.2%,
-      rgba(253, 253, 253, 0.55) 47.1%,
-      rgba(253, 253, 253, 0.45) 52.9%,
-      rgba(253, 253, 253, 0.352) 58.8%,
-      rgba(253, 253, 253, 0.259) 64.7%,
-      rgba(253, 253, 253, 0.175) 71%,
-      rgba(253, 253, 253, 0.104) 77.5%,
-      rgba(253, 253, 253, 0.049) 84.5%,
-      rgba(253, 253, 253, 0.013) 91.9%,
-      rgba(253, 253, 253, 0) 100%
+      rgba(250, 250, 250, 1) 0%,
+      rgba(250, 250, 250, 0.987) 8.1%,
+      rgba(250, 250, 250, 0.951) 15.5%,
+      rgba(250, 250, 250, 0.896) 22.5%,
+      rgba(250, 250, 250, 0.825) 29%,
+      rgba(250, 250, 250, 0.741) 35.3%,
+      rgba(250, 250, 250, 0.648) 41.2%,
+      rgba(250, 250, 250, 0.55) 47.1%,
+      rgba(250, 250, 250, 0.45) 52.9%,
+      rgba(250, 250, 250, 0.352) 58.8%,
+      rgba(250, 250, 250, 0.259) 64.7%,
+      rgba(250, 250, 250, 0.175) 71%,
+      rgba(250, 250, 250, 0.104) 77.5%,
+      rgba(250, 250, 250, 0.049) 84.5%,
+      rgba(250, 250, 250, 0.013) 91.9%,
+      rgba(250, 250, 250, 0) 100%
     );
   }
 }

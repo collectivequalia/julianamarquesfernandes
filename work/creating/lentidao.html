@@ -10,28 +10,6 @@
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/home.css">
   <link rel="stylesheet" href="../../css/project.css">
-  <!-- Page-only override: the trailer is a vertical (9:16) video, so
-       the usual full-height/object-fit:cover treatment would crop it
-       heavily. Instead it's capped to a modest height and centred,
-       keeping its own proportions, so it doesn't dominate the page's
-       vertical space the way a landscape video would. -->
-  <style>
-    @media (min-width: 1101px) {
-      body.project .project-media {
-        height: auto;
-        overflow: visible;
-        text-align: right;
-        margin: 0 0 24px;
-      }
-
-      body.project .project-media video {
-        width: 400px;
-        height: auto;
-        max-width: 100%;
-        display: inline-block;
-      }
-    }
-  </style>
 </head>
 <body class="project">
 
@@ -91,11 +69,10 @@
 
     <div class="project-right">
       <div class="project-media">
-        <video src="../../assets/videos/lentidao-trailer.mp4" poster="../../assets/images/lentidao-trailer-poster.jpg" autoplay muted loop playsinline></video>
+        <img src="../../assets/images/lentidao1.jpg" alt="Two performers in a dimly lit rehearsal space, Lentidão">
       </div>
 
       <div class="project-gallery">
-        <img src="../../assets/images/lentidao1.jpg" alt="Two performers in a dimly lit rehearsal space, Lentidão">
         <img src="../../assets/images/lentidao2.jpg" alt="Performer beside a stone fountain in a town square, Lentidão">
         <img src="../../assets/images/lentidao3.jpg" alt="Dresses hanging on a line against a weathered wall, Lentidão">
         <img src="../../assets/images/lentidao4.jpg" alt="Group of performers in an embrace on stage, Lentidão">
@@ -109,8 +86,6 @@
   </div>
 
   <script src="../../js/lightbox.js"></script>
-
-  <script src="../../js/video-resume.js"></script>
 
 </body>
 </html>

@@ -50,49 +50,49 @@ body.project {
 
 .project-fade-top {
   top: 0;
-  height: 20vh;
+  height: 22vh;
   background: linear-gradient(
     to bottom,
-    rgba(253, 253, 253, 1) 0%,
-    rgba(253, 253, 253, 0.987) 8.1%,
-    rgba(253, 253, 253, 0.951) 15.5%,
-    rgba(253, 253, 253, 0.896) 22.5%,
-    rgba(253, 253, 253, 0.825) 29%,
-    rgba(253, 253, 253, 0.741) 35.3%,
-    rgba(253, 253, 253, 0.648) 41.2%,
-    rgba(253, 253, 253, 0.55) 47.1%,
-    rgba(253, 253, 253, 0.45) 52.9%,
-    rgba(253, 253, 253, 0.352) 58.8%,
-    rgba(253, 253, 253, 0.259) 64.7%,
-    rgba(253, 253, 253, 0.175) 71%,
-    rgba(253, 253, 253, 0.104) 77.5%,
-    rgba(253, 253, 253, 0.049) 84.5%,
-    rgba(253, 253, 253, 0.013) 91.9%,
-    rgba(253, 253, 253, 0) 100%
+    rgba(250, 250, 250, 1) 0%,
+    rgba(250, 250, 250, 0.987) 8.1%,
+    rgba(250, 250, 250, 0.951) 15.5%,
+    rgba(250, 250, 250, 0.896) 22.5%,
+    rgba(250, 250, 250, 0.825) 29%,
+    rgba(250, 250, 250, 0.741) 35.3%,
+    rgba(250, 250, 250, 0.648) 41.2%,
+    rgba(250, 250, 250, 0.55) 47.1%,
+    rgba(250, 250, 250, 0.45) 52.9%,
+    rgba(250, 250, 250, 0.352) 58.8%,
+    rgba(250, 250, 250, 0.259) 64.7%,
+    rgba(250, 250, 250, 0.175) 71%,
+    rgba(250, 250, 250, 0.104) 77.5%,
+    rgba(250, 250, 250, 0.049) 84.5%,
+    rgba(250, 250, 250, 0.013) 91.9%,
+    rgba(250, 250, 250, 0) 100%
   );
 }
 
 .project-fade-bottom {
   bottom: 0;
-  height: 20vh;
+  height: 12vh;
   background: linear-gradient(
     to top,
-    rgba(253, 253, 253, 1) 0%,
-    rgba(253, 253, 253, 0.987) 8.1%,
-    rgba(253, 253, 253, 0.951) 15.5%,
-    rgba(253, 253, 253, 0.896) 22.5%,
-    rgba(253, 253, 253, 0.825) 29%,
-    rgba(253, 253, 253, 0.741) 35.3%,
-    rgba(253, 253, 253, 0.648) 41.2%,
-    rgba(253, 253, 253, 0.55) 47.1%,
-    rgba(253, 253, 253, 0.45) 52.9%,
-    rgba(253, 253, 253, 0.352) 58.8%,
-    rgba(253, 253, 253, 0.259) 64.7%,
-    rgba(253, 253, 253, 0.175) 71%,
-    rgba(253, 253, 253, 0.104) 77.5%,
-    rgba(253, 253, 253, 0.049) 84.5%,
-    rgba(253, 253, 253, 0.013) 91.9%,
-    rgba(253, 253, 253, 0) 100%
+    rgba(250, 250, 250, 1) 0%,
+    rgba(250, 250, 250, 0.987) 8.1%,
+    rgba(250, 250, 250, 0.951) 15.5%,
+    rgba(250, 250, 250, 0.896) 22.5%,
+    rgba(250, 250, 250, 0.825) 29%,
+    rgba(250, 250, 250, 0.741) 35.3%,
+    rgba(250, 250, 250, 0.648) 41.2%,
+    rgba(250, 250, 250, 0.55) 47.1%,
+    rgba(250, 250, 250, 0.45) 52.9%,
+    rgba(250, 250, 250, 0.352) 58.8%,
+    rgba(250, 250, 250, 0.259) 64.7%,
+    rgba(250, 250, 250, 0.175) 71%,
+    rgba(250, 250, 250, 0.104) 77.5%,
+    rgba(250, 250, 250, 0.049) 84.5%,
+    rgba(250, 250, 250, 0.013) 91.9%,
+    rgba(250, 250, 250, 0) 100%
   );
 }
 
@@ -108,7 +108,7 @@ body.project .home-topbar {
    typography — applies at every breakpoint) --- */
 
 .project-crumb {
-  background: #fdfdfd;
+  background: #fafafa;
   border: 0.5px solid #23241f;
   border-radius: 12px;
   overflow: hidden;
@@ -247,6 +247,7 @@ body.project .home-topbar {
 
 .project-gallery img {
   display: block;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .lightbox {
@@ -392,7 +393,7 @@ body.project .home-topbar {
    other, and the body itself never scrolls. --- */
 @media (min-width: 1101px) {
   .project-fade-bottom {
-    height: 140px;
+    height: 90px;
   }
 
   .project-layout {
@@ -420,19 +421,20 @@ body.project .home-topbar {
      — so scrolled content can slide all the way up behind the full
      height of the crumb and get masked by it (higher z-index, opaque
      background), same as before. padding-top pushes the resting
-     (unscrolled) content down to 230px, the same visual gap under the
-     crumb that the old sticky offset produced. Runs down to the same
-     bottom margin as the rest of the page. Scrolling inside it never
-     touches the right column's scroll, and vice versa. Scrollbar
-     hidden for the same reason it's hidden on the page itself —
-     functional, not shown. */
+     (unscrolled) content down to 246px, the same visual gap under the
+     crumb that the old sticky offset produced — recalculated for the
+     taller crumb the desktop font-size bump (style.css) produces.
+     Runs down to the same bottom margin as the rest of the page.
+     Scrolling inside it never touches the right column's scroll, and
+     vice versa. Scrollbar hidden for the same reason it's hidden on
+     the page itself — functional, not shown. */
   .project-left-sticky {
     position: fixed;
     top: 88px;
     left: 40px;
     width: 380px;
     bottom: 40px;
-    padding-top: 142px;
+    padding-top: 158px;
     box-sizing: border-box;
     overflow-y: auto;
     z-index: 1;
@@ -467,7 +469,7 @@ body.project .home-topbar {
   }
 
   .project-fade-top {
-    height: 220px;
+    height: 242px;
   }
 
   .project-media {
@@ -482,64 +484,53 @@ body.project .home-topbar {
   }
 
   .project-gallery {
-    position: relative;
-  }
-
-  .project-gallery img {
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .project-gallery img:nth-child(1) {
-    width: 62%;
+    width: 92%;
+    align-self: flex-start;
   }
 
   .project-gallery img:nth-child(2) {
-    width: 46%;
-    margin-top: -12%;
-    margin-left: 42%;
+    width: 80%;
+    align-self: flex-end;
   }
 
   .project-gallery img:nth-child(3) {
-    width: 50%;
-    margin-top: -10%;
-    margin-left: 6%;
+    width: 88%;
+    align-self: flex-start;
   }
 
   .project-gallery img:nth-child(4) {
-    width: 48%;
-    margin-top: -10%;
-    margin-left: 46%;
+    width: 84%;
+    align-self: flex-end;
   }
 
   .project-gallery img:nth-child(5) {
-    width: 44%;
-    margin-top: -8%;
-    margin-left: 4%;
+    width: 90%;
+    align-self: flex-start;
   }
 
   .project-gallery img:nth-child(6) {
-    width: 40%;
-    margin-top: -8%;
-    margin-left: 54%;
+    width: 82%;
+    align-self: flex-end;
   }
 
   .project-gallery img:nth-child(7) {
-    width: 42%;
-    margin-top: -6%;
-    margin-left: 10%;
+    width: 88%;
+    align-self: flex-start;
   }
 
   .project-gallery img:nth-child(8) {
-    width: 38%;
-    margin-top: -8%;
-    margin-left: 50%;
+    width: 86%;
+    align-self: flex-end;
   }
 
   .project-gallery img:nth-child(9) {
-    width: 46%;
-    margin-top: -6%;
-    margin-left: 8%;
+    width: 90%;
+    align-self: flex-start;
   }
 }

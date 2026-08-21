@@ -92,25 +92,29 @@ body.home {
 }
 
 .home-image::before {
+  height: 9.9%;
+}
+
+.home-image::before {
   top: 0;
   background: linear-gradient(
     to bottom,
-    rgba(253, 253, 253, 1) 0%,
-    rgba(253, 253, 253, 0.987) 8.1%,
-    rgba(253, 253, 253, 0.951) 15.5%,
-    rgba(253, 253, 253, 0.896) 22.5%,
-    rgba(253, 253, 253, 0.825) 29%,
-    rgba(253, 253, 253, 0.741) 35.3%,
-    rgba(253, 253, 253, 0.648) 41.2%,
-    rgba(253, 253, 253, 0.55) 47.1%,
-    rgba(253, 253, 253, 0.45) 52.9%,
-    rgba(253, 253, 253, 0.352) 58.8%,
-    rgba(253, 253, 253, 0.259) 64.7%,
-    rgba(253, 253, 253, 0.175) 71%,
-    rgba(253, 253, 253, 0.104) 77.5%,
-    rgba(253, 253, 253, 0.049) 84.5%,
-    rgba(253, 253, 253, 0.013) 91.9%,
-    rgba(253, 253, 253, 0) 100%
+    rgba(250, 250, 250, 1) 0%,
+    rgba(250, 250, 250, 0.987) 8.1%,
+    rgba(250, 250, 250, 0.951) 15.5%,
+    rgba(250, 250, 250, 0.896) 22.5%,
+    rgba(250, 250, 250, 0.825) 29%,
+    rgba(250, 250, 250, 0.741) 35.3%,
+    rgba(250, 250, 250, 0.648) 41.2%,
+    rgba(250, 250, 250, 0.55) 47.1%,
+    rgba(250, 250, 250, 0.45) 52.9%,
+    rgba(250, 250, 250, 0.352) 58.8%,
+    rgba(250, 250, 250, 0.259) 64.7%,
+    rgba(250, 250, 250, 0.175) 71%,
+    rgba(250, 250, 250, 0.104) 77.5%,
+    rgba(250, 250, 250, 0.049) 84.5%,
+    rgba(250, 250, 250, 0.013) 91.9%,
+    rgba(250, 250, 250, 0) 100%
   );
 }
 
@@ -118,22 +122,22 @@ body.home {
   bottom: 0;
   background: linear-gradient(
     to top,
-    rgba(253, 253, 253, 1) 0%,
-    rgba(253, 253, 253, 0.987) 8.1%,
-    rgba(253, 253, 253, 0.951) 15.5%,
-    rgba(253, 253, 253, 0.896) 22.5%,
-    rgba(253, 253, 253, 0.825) 29%,
-    rgba(253, 253, 253, 0.741) 35.3%,
-    rgba(253, 253, 253, 0.648) 41.2%,
-    rgba(253, 253, 253, 0.55) 47.1%,
-    rgba(253, 253, 253, 0.45) 52.9%,
-    rgba(253, 253, 253, 0.352) 58.8%,
-    rgba(253, 253, 253, 0.259) 64.7%,
-    rgba(253, 253, 253, 0.175) 71%,
-    rgba(253, 253, 253, 0.104) 77.5%,
-    rgba(253, 253, 253, 0.049) 84.5%,
-    rgba(253, 253, 253, 0.013) 91.9%,
-    rgba(253, 253, 253, 0) 100%
+    rgba(250, 250, 250, 1) 0%,
+    rgba(250, 250, 250, 0.987) 8.1%,
+    rgba(250, 250, 250, 0.951) 15.5%,
+    rgba(250, 250, 250, 0.896) 22.5%,
+    rgba(250, 250, 250, 0.825) 29%,
+    rgba(250, 250, 250, 0.741) 35.3%,
+    rgba(250, 250, 250, 0.648) 41.2%,
+    rgba(250, 250, 250, 0.55) 47.1%,
+    rgba(250, 250, 250, 0.45) 52.9%,
+    rgba(250, 250, 250, 0.352) 58.8%,
+    rgba(250, 250, 250, 0.259) 64.7%,
+    rgba(250, 250, 250, 0.175) 71%,
+    rgba(250, 250, 250, 0.104) 77.5%,
+    rgba(250, 250, 250, 0.049) 84.5%,
+    rgba(250, 250, 250, 0.013) 91.9%,
+    rgba(250, 250, 250, 0) 100%
   );
 }
 
@@ -155,24 +159,26 @@ body.home {
 }
 
 .events-box {
-  background: #fdfdfd;
+  background: #fafafa;
   border: 0.5px solid #23241f;
   border-radius: 12px;
   padding: 16px 20px;
 }
 
 /* Home's own box floats over the hero video, so it gets a
-   translucent white instead of the solid #fdfdfd used on
+   translucent white instead of the solid #fafafa used on
    calendar.html's own page. */
 .home-main .events-box {
-  background: rgba(253, 253, 253, 0.65);
+  background: rgba(250, 250, 250, 0.65);
 }
 
 .events-heading {
   margin: 0 0 10px;
   font-style: italic;
   font-weight: 600;
-  font-size: calc(1.0625rem - 0.5pt);
+  /* "Upcoming" read too large at both breakpoints — 70% of the
+     original size, kept proportional at each. */
+  font-size: calc((1.0625rem - 0.5pt) * 0.7);
 }
 
 .events-list {
@@ -285,7 +291,7 @@ body.home {
   }
 
   .home-image::before {
-    height: 15%;
+    height: 16.5%;
   }
 
   .home-image::after {
@@ -295,23 +301,23 @@ body.home {
        sits on solid white instead of a lingering partial tint. */
     background: linear-gradient(
       to top,
-      rgba(253, 253, 253, 1) 0%,
-      rgba(253, 253, 253, 1) 40%,
-      rgba(253, 253, 253, 0.987) 44.9%,
-      rgba(253, 253, 253, 0.951) 49.3%,
-      rgba(253, 253, 253, 0.896) 53.5%,
-      rgba(253, 253, 253, 0.825) 57.4%,
-      rgba(253, 253, 253, 0.741) 61.2%,
-      rgba(253, 253, 253, 0.648) 64.7%,
-      rgba(253, 253, 253, 0.55) 68.3%,
-      rgba(253, 253, 253, 0.45) 71.7%,
-      rgba(253, 253, 253, 0.352) 75.3%,
-      rgba(253, 253, 253, 0.259) 78.8%,
-      rgba(253, 253, 253, 0.175) 82.6%,
-      rgba(253, 253, 253, 0.104) 86.5%,
-      rgba(253, 253, 253, 0.049) 90.7%,
-      rgba(253, 253, 253, 0.013) 95.1%,
-      rgba(253, 253, 253, 0) 100%
+      rgba(250, 250, 250, 1) 0%,
+      rgba(250, 250, 250, 1) 40%,
+      rgba(250, 250, 250, 0.987) 44.9%,
+      rgba(250, 250, 250, 0.951) 49.3%,
+      rgba(250, 250, 250, 0.896) 53.5%,
+      rgba(250, 250, 250, 0.825) 57.4%,
+      rgba(250, 250, 250, 0.741) 61.2%,
+      rgba(250, 250, 250, 0.648) 64.7%,
+      rgba(250, 250, 250, 0.55) 68.3%,
+      rgba(250, 250, 250, 0.45) 71.7%,
+      rgba(250, 250, 250, 0.352) 75.3%,
+      rgba(250, 250, 250, 0.259) 78.8%,
+      rgba(250, 250, 250, 0.175) 82.6%,
+      rgba(250, 250, 250, 0.104) 86.5%,
+      rgba(250, 250, 250, 0.049) 90.7%,
+      rgba(250, 250, 250, 0.013) 95.1%,
+      rgba(250, 250, 250, 0) 100%
     );
   }
 
@@ -339,6 +345,26 @@ body.home {
     color: #23241f;
     width: 100%;
     text-align: center;
+  }
+
+  /* Upcoming box ran too tall on mobile — tighter padding/type than
+     the desktop preview box, which has more room to spare. */
+  .home-main .events-box {
+    padding: 12px 16px;
+  }
+
+  .home-main .events-heading {
+    margin-bottom: 6px;
+  }
+
+  .home-main .events-box hr {
+    margin: 0 -16px 12px;
+    width: calc(100% + 32px);
+  }
+
+  .home-main .events-list li {
+    font-size: 0.9rem;
+    padding: 2px 0;
   }
 
 }

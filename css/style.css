@@ -6,7 +6,7 @@
    (faster than @import, which blocks on an extra round trip). */
 
 body {
-  background: #fdfdfd;
+  background: #fafafa;
   font-family: 'Fanwood Text', serif;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -19,6 +19,16 @@ body {
 a,
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Every other size on the site is set in rem, so bumping the root
+   size here scales all of them together — text read as too small
+   on desktop. Scoped to desktop only; mobile sizes were already
+   tuned per element. */
+@media (min-width: 1101px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 /* Hide the scrollbar site-wide on mobile (every page links this
