@@ -260,7 +260,7 @@ body.work .home-topbar {
     top: 0;
     left: 0;
     right: 0;
-    height: 33%;
+    height: 270px;
     pointer-events: none;
     background: linear-gradient(
       to bottom,
