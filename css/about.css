@@ -117,7 +117,7 @@ body.about .home-topbar {
 }
 
 .about-box section {
-  padding: 1rem;
+  padding: 16px;
 }
 
 .about-box section + section {
@@ -141,7 +141,7 @@ body.about .home-topbar {
 .about-box h2 {
   font-family: "Abhaya Libre", serif;
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   margin: 1.2em 0 0.6em;
 }
 
@@ -157,10 +157,10 @@ body.about .home-topbar {
   margin: 0;
 }
 
-/* --- First photo: full-width, same treatment as .project-media's
-   video on the project pages (capped to one screen's height on
-   desktop, cropped with object-fit:cover; natural height on mobile,
-   same as a video would get there). --- */
+/* --- First photo: full-width, natural aspect ratio on mobile; on
+   desktop, capped to one screen's height (like .project-media's
+   video) but never cropped — width follows the image's own aspect
+   ratio, right-aligned in its pane instead of stretched to fill it. --- */
 
 .about-media {
   margin-bottom: 24px;
@@ -170,7 +170,7 @@ body.about .home-topbar {
 .about-media img {
   width: 100%;
   display: block;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* --- Photo gallery: varied widths and alternating alignment for
@@ -185,7 +185,7 @@ body.about .home-topbar {
 
 .about-gallery img {
   display: block;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .about-gallery img:nth-child(1) {
@@ -239,32 +239,29 @@ body.about .home-topbar {
   }
 
   .about-fade-bottom {
-    height: 90px;
+    height: 88px;
   }
 
   .about-main {
-    margin: 88px 40px 80px;
+    margin: 88px 40px 40px;
   }
 
   .about-left {
-    width: 540px;
+    width: 380px;
     position: relative;
     z-index: 2;
   }
 
   /* Same fixed-pane technique as .project-right: its own independently
-     scrolling column, sized to the viewport, so the cascading gallery
-     can run taller than the screen without pushing the page itself
-     into a second scrollbar. Left edge starts clear of .about-left
-     (40 margin + 540 box width + 40 gap) — unlike the old video,
-     these are opaque photos, so the pane can't overlap under the box
-     the way the video used to. */
+     scrolling column, sized to the viewport. Left edge starts clear of
+     .about-left (40 margin + 380 box width + 40 gap — same width as
+     the project pages' own left column). */
   .about-right {
     position: fixed;
     top: 88px;
     right: 40px;
     bottom: 40px;
-    left: 620px;
+    left: 460px;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -276,14 +273,19 @@ body.about .home-topbar {
   }
 
   /* Same cap as .project-media's video: one screen's worth of height
-     (viewport minus the pane's own top/bottom offsets), cropped to
-     fit instead of running taller. */
+     (viewport minus the pane's own top/bottom offsets) — but instead
+     of cropping to fill the pane's width, the image keeps its own
+     aspect ratio (vertical, not stretched) and hugs the right edge. */
   .about-media {
     height: calc(100vh - 88px - 40px);
+    margin-bottom: 0;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .about-media img {
+    width: auto;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 }

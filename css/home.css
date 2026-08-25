@@ -28,7 +28,7 @@ body.home {
 
 .home-topbar {
   position: fixed;
-  top: 7px;
+  top: 8px;
   left: 32px;
   right: 32px;
   z-index: 2;
@@ -55,7 +55,7 @@ body.home {
 
 .home-topbar nav a {
   font-style: italic;
-  font-size: 1.1875rem;
+  font-size: 1.25rem;
   text-decoration: none;
   color: inherit;
 }
@@ -92,7 +92,7 @@ body.home {
 }
 
 .home-image::before {
-  height: 110px;
+  height: 112px;
 }
 
 .home-image::before {
@@ -173,12 +173,10 @@ body.home {
 }
 
 .events-heading {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-style: italic;
   font-weight: 600;
-  /* "Upcoming" read too large at both breakpoints — 70% of the
-     original size, kept proportional at each. */
-  font-size: calc((1.0625rem - 0.5pt) * 0.7);
+  font-size: 0.75rem;
 }
 
 .events-list {
@@ -190,13 +188,13 @@ body.home {
 /* Matches the calendar page's own font-size bump — kept in sync
    since this list mirrors calendar.html's. */
 .home-main .events-list li {
-  font-size: calc(1.0625rem + 0.5pt);
+  font-size: 1rem;
 }
 
 .events-list li {
   font-style: italic;
-  font-size: 1.0625rem;
-  padding: 3px 0;
+  font-size: 1rem;
+  padding: 4px 0;
 }
 
 /* Linear, two-line row at every breakpoint — name and location run
@@ -286,12 +284,8 @@ body.home {
     justify-content: space-between;
   }
 
-  .home-topbar nav a {
-    font-size: calc(clamp(1.15rem, 1.9vw, 1.3125rem) + 0.5pt);
-  }
-
   .home-image::before {
-    height: 135px;
+    height: 136px;
   }
 
   .home-image::after {
@@ -354,7 +348,7 @@ body.home {
   }
 
   .home-main .events-heading {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .home-main .events-box hr {
@@ -363,8 +357,8 @@ body.home {
   }
 
   .home-main .events-list li {
-    font-size: 0.9rem;
-    padding: 2px 0;
+    font-size: 1rem;
+    padding: 4px 0;
   }
 
 }

@@ -102,8 +102,8 @@ body.calendar .home-topbar {
 }
 
 .calendar-main .events-list li {
-  font-size: calc(1.0625rem + 0.5pt);
-  padding: 10px 0;
+  font-size: 1rem;
+  padding: 12px 0;
 }
 
 /* --- Hover photo preview (desktop only, see calendar.js) --- */
@@ -147,7 +147,7 @@ body.calendar .home-topbar {
      topbar. This pushes it down a further ~40px regardless of
      content length, and lets the page scroll normally. */
   .calendar-main {
-    margin-top: 115px;
+    margin-top: 116px;
   }
 }
 
@@ -185,6 +185,6 @@ body.calendar .home-topbar {
   }
 
   .calendar-main .events-box {
-    max-width: 450px;
+    max-width: 448px;
   }
 }

@@ -118,11 +118,11 @@ body.project .home-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3rem;
-  padding: 0 1rem;
+  height: 48px;
+  padding: 0 16px;
   border-bottom: 0.5px solid #23241f;
   font-family: "Abhaya Libre", serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #23241f;
   text-decoration: none;
 }
@@ -132,7 +132,7 @@ body.project .home-topbar {
 }
 
 .crumb-arrow {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 
 .crumb-main {
@@ -140,13 +140,13 @@ body.project .home-topbar {
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  padding: 0.75rem 1rem;
+  padding: 12px 16px;
 }
 
 .project-name {
   font-family: "Abhaya Libre", serif;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin: 0;
@@ -164,7 +164,7 @@ body.project .home-topbar {
 
 .keyword-list li {
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #23241f;
   line-height: 1.4;
 }
@@ -190,7 +190,7 @@ body.project .home-topbar {
 }
 
 .project-facts section {
-  padding: 1rem;
+  padding: 16px;
 }
 
 .project-facts section + section {
@@ -224,7 +224,7 @@ body.project .home-topbar {
 
 .project-credits p,
 .project-dates p {
-  font-size: 10pt;
+  font-size: 0.75rem;
   line-height: 1.2;
   margin-bottom: 0.6em;
 }
@@ -247,7 +247,7 @@ body.project .home-topbar {
 
 .project-gallery img {
   display: block;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .lightbox {
@@ -279,7 +279,7 @@ body.project .home-topbar {
   bottom: 16px;
   margin: 0;
   color: #fdfdfd;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   cursor: default;
 }
 
@@ -305,7 +305,7 @@ body.project .home-topbar {
   .project-crumb {
     order: 1;
     position: fixed;
-    top: 58px;
+    top: 56px;
     left: 16px;
     right: 16px;
     z-index: 6;
@@ -324,7 +324,7 @@ body.project .home-topbar {
   }
 
   .project-media {
-    margin: 206px 16px 0;
+    margin: 208px 16px 0;
   }
 
   .project-facts {
@@ -393,7 +393,7 @@ body.project .home-topbar {
    other, and the body itself never scrolls. --- */
 @media (min-width: 1101px) {
   .project-fade-bottom {
-    height: 90px;
+    height: 88px;
   }
 
   .project-layout {
@@ -421,7 +421,7 @@ body.project .home-topbar {
      — so scrolled content can slide all the way up behind the full
      height of the crumb and get masked by it (higher z-index, opaque
      background), same as before. padding-top pushes the resting
-     (unscrolled) content down to 246px, the same visual gap under the
+     (unscrolled) content down to 248px, the same visual gap under the
      crumb that the old sticky offset produced — recalculated for the
      taller crumb the desktop font-size bump (style.css) produces.
      Runs down to the same bottom margin as the rest of the page.
@@ -434,7 +434,7 @@ body.project .home-topbar {
     left: 40px;
     width: 380px;
     bottom: 40px;
-    padding-top: 158px;
+    padding-top: 160px;
     box-sizing: border-box;
     overflow-y: auto;
     z-index: 1;
